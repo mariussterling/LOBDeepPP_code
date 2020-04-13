@@ -1,0 +1,109 @@
+{
+    "keras_train": {
+        "epochs": 40,
+        "lr": 0.01,
+        "lr_decay": 0,
+        "early_stopping_n": null
+    },
+    "interpretable": false,
+    "date_span": [
+        "2015-07-06",
+        "2015-07-11"
+    ],
+    "lob_model": {
+        "levels": 6,
+        "pred_horizon": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+        ],
+        "lag": 16,
+        "fillna": 0,
+        "reverse": true,
+        "targets_stacked": false,
+        "targets_standardize_by_sqrt_time": true,
+        "batch_size": 64,
+        "stack_samples": true,
+        "add_channel": true,
+        "log_return_method": "level_1_prices",
+        "log_base_volume": 1000
+    },
+    "features": {
+        "filters": [
+            32,
+            64,
+            64,
+            64,
+            64,
+            64
+        ],
+        "bias_constraint": "None"
+    },
+    "output": {
+        "filters": [
+            128,
+            64,
+            32
+        ],
+        "bias_constraint": "None"
+    },
+    "tcn": {
+        "base": {
+            "kernel_size": [
+                2,
+                1
+            ],
+            "dilations": [
+                [
+                    1,
+                    1
+                ],
+                [
+                    2,
+                    1
+                ],
+                [
+                    4,
+                    1
+                ],
+                [
+                    8,
+                    1
+                ]
+            ],
+            "filters": 128,
+            "nb_stacks": 1,
+            "dropout_rate": 0.33,
+            "use_skip_connections": true,
+            "padding": "causal"
+        }
+    },
+    "load_model": "results/nn_model_training/LOB_keras_model17a/params_N16a___*___model_*.h5"
+}
